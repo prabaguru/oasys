@@ -1,5 +1,5 @@
-# mean-angular2-registration-login-example
+# Oasys App MEAN - Stack
 
-MEAN Stack with Angular 2 - User Registration and Login Example & Tutorial
+For running the app do (npm install and npm start) in the server and client folder to 
+run the bankend and front end code.
 
-For details and documentation go to http://jasonwatmore.com/post/2017/02/22/mean-with-angular-2-user-registration-and-login-example-tutorial
