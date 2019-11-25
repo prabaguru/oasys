@@ -1,8 +1,8 @@
-﻿import { NgModule } from '@angular/core';
+﻿import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 // used to create fake backend
 //import { fakeBackendProvider } from './_helpers';
 
@@ -19,7 +19,8 @@ import { AlertComponent } from './_components';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    appRoutingModule
+    appRoutingModule,
+    MDBBootstrapModule.forRoot()
     ],
     declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { AlertComponent } from './_components';
     // provider used to create fake backend
     //fakeBackendProvider
     ],
+    schemas: [NO_ERRORS_SCHEMA],
     bootstrap: [AppComponent]
 })
 export class AppModule { };

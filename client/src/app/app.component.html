@@ -1,12 +1,47 @@
-﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
+﻿<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color" id="header">
+
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="#">Oasys</a>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+  aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<!-- Collapsible content -->
+<div class="collapse navbar-collapse" id="basicExampleNav">
+
+  <!-- Links -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home
+        <span class="sr-only">(current)</span>
+      </a>
+    </li>
+  </ul>
+  <div class="float-right">
+   <div class="dropdown" mdbDropdown>
+    <a mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button"
+    mdbWavesEffect>
+    Dropdown primary
+  </a>
+  <div class="dropdown-menu dropdown-primary fittobottom" style="margin:24px 0 0 15px;">
+   <a class="dropdown-item" routerLink="/">Doctors Login</a>
+   <a *ngIf="currentUser" class="dropdown-item" (click)="logout()">Logout</a>
+ </div>
+</div>
+
+</div>
+<!-- Links -->
+
+
+</div>
+<!-- Collapsible content -->
+
 </nav>
-
-
+<!--/.Navbar-->
 <!-- main app container -->
 <div class="container-fluid">
   <div class="row">
