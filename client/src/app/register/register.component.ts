@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService, UserService, AuthenticationService } from '@/_services';
@@ -27,14 +27,33 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            username: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+            mobile: ['', [Validators.required, Validators.pattern("^[0-9]*$"),Validators.minLength(10)]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            confirmpassword: ['', [Validators.required]]
         });
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
+
+    
+    onPasswordChange() {
+        if (this.confirmpassword.value == this.password.value) {
+            this.confirmpassword.setErrors(null);
+        } else {
+            this.confirmpassword.setErrors({ mismatch: true });
+        }
+    }
+
+    // getting the form control elements
+    get password(): AbstractControl {
+        return this.registerForm.controls['password'];
+    }
+
+    get confirmpassword(): AbstractControl {
+        return this.registerForm.controls['confirmpassword'];
+    }
 
     onSubmit() {
         this.submitted = true;
