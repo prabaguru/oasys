@@ -13,8 +13,8 @@ module.exports = {
     delete: _delete
 };
 
-async function authenticate({ username, password }) {
-    const user = await User.findOne({ username });
+async function authenticate({ email, password }) {
+    const user = await User.findOne({ email });
     if (user && bcrypt.compareSync(password, user.hash)) {
         const { hash, ...userWithoutHash } = user.toObject();
         const token = jwt.sign({ sub: user.id }, config.secret);
@@ -35,8 +35,8 @@ async function getById(id) {
 
 async function create(userParam) {
     // validate
-    if (await User.findOne({ username: userParam.username })) {
-        throw 'Username "' + userParam.username + '" is already registered';
+    if (await User.findOne({ email: userParam.email })) {
+        throw 'Email Id already registered';
     }
 
     const user = new User(userParam);

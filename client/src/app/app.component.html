@@ -1,80 +1,40 @@
 ﻿<!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color" id="header" style="padding: 0rem 1rem;">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary midcontent">
+  <a class="navbar-brand white" href="#">Oasys</a>
 
-  <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Oasys</a>
+  <button class="navbar-toggler white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon white"></span>
+  </button>
 
-  <!-- Collapse button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-  aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-
-<!-- Collapsible content -->
-<div class="collapse navbar-collapse" id="basicExampleNav">
-
-  <!-- Links -->
-  <ul class="navbar-nav mr-auto">
-   <!--  <li class="nav-item active">
-     <a class="nav-link" href="#">Home
-       <span class="sr-only">(current)</span>
-     </a>
-   </li> -->
-   <li>
-     <!--Dropdown primary-->
-     <div class="dropdown justify-content-center">
-      <!--Trigger-->
-      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1"
-      data-toggle="dropdown">Search Doctors By Speciality</button>
-
-      <!--Menu-->
-      <div class="dropdown-menu dropdown-primary" id="your-custom-id">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/">MDB</a>
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/react/">MDB react</a>
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/angular/">MDB angular</a>
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/vue/">MDB vue</a>
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://brandflow.net/">BrandFlow</a>
-        <a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/education/bootstrap/">MDB
-        Rocks</a>
-      </div>
-    </div>
-    <!--/Dropdown primary-->
-
-  </li>
-</ul>
-
-
-
-<div class="float-right">
- <div class="dropdown" mdbDropdown>
-  <a mdbDropdownToggle mdbBtn color="primary" class="dropdown-toggle waves-light" type="button"
-  mdbWavesEffect>Oasys for Doctors</a>
-  <div class="dropdown-menu dropdown-primary fittobottom" style="margin:24px 0 0 15px;">
-   <a class="dropdown-item" routerLink="/">Doctor Registeration</a>
-   <a class="dropdown-item" routerLink="/">Doctors Login</a>
-   <a *ngIf="currentUser" class="dropdown-item" (click)="logout()">Logout</a>
- </div>
-</div>
-
-</div>
-<!-- Links -->
-
-
-</div>
-<!-- Collapsible content -->
-
-</nav>
-<!--/.Navbar-->
-<!-- main app container -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6 offset-sm-3">
-      <alert></alert>
-      <router-outlet></router-outlet>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link white" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/">Doctors Login</a>
+          <a *ngIf="currentUser" class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </li>
+      
+    </ul>
+    
   </div>
-</div>
+</nav>
+
+<!-- main app container -->
+<div class="container">
+  <div class="row">
+<div class="col-sm-6 offset-sm-3">
+<alert></alert>
+</div></div></div>
+<router-outlet></router-outlet>
+
+ 
 
 
 
