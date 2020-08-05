@@ -10,5 +10,4 @@ mongoose.Promise = global.Promise;
 
 module.exports = {
 	User: require('../users/user.model'),
-	Doctor: require('../doctors/doctor.model')
 };
